@@ -5,3 +5,6 @@ __pycache__/
 .DS_Store
 dbt_project/target/
 dbt_project/logs/
+.secrets/
+venv/
+data_generation/output/
