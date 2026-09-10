@@ -2,7 +2,7 @@
 Reads locally-generated CSV files (from generate_csv_source.py) and loads
 them into BigQuery's raw.csv_source_orders table.
 
-Idempotent at the file level: checks raw.ingestion_log before loading any
+Idempotent at the file level: checks raw.csv_ingestion_log before loading any
 file, so re-running this script never reprocesses a file already loaded.
 (Exact row-level dedup — e.g. the intentional duplicate row the generator
 sometimes injects — is intentionally NOT handled here. Raw/bronze layer
@@ -11,7 +11,7 @@ handled downstream in dbt staging via incremental + unique_key merge.)
 
 Schema drift detection: compares each file's header against the expected
 schema. Any unexpected new column is logged explicitly to
-raw.schema_change_log rather than being silently absorbed.
+raw.csv_schema_change_log rather than being silently absorbed.
 
 Late-arriving data: no special handling here by design — raw faithfully
 loads whatever a file contains, regardless of what event_timestamp says.
@@ -36,8 +36,8 @@ from google.cloud import bigquery
 PROJECT_ID = "credible-skill-453411-c1"
 DATASET = "raw"
 TARGET_TABLE = "csv_source_orders"
-LOG_TABLE = "ingestion_log"
-SCHEMA_LOG_TABLE = "schema_change_log"
+LOG_TABLE = "csv_ingestion_log"
+SCHEMA_LOG_TABLE = "cav_schema_change_log"
 SOURCE_NAME = "csv_source"
 INPUT_DIR = "data_generation/output/csv_source"
 
