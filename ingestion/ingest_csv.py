@@ -33,7 +33,10 @@ import os
 from datetime import datetime, timezone
 from google.cloud import bigquery
 
-PROJECT_ID = "credible-skill-453411-c1"
+from dotenv import load_dotenv
+load_dotenv()
+
+PROJECT_ID = os.environ["GCP_PROJECT_ID"]
 DATASET = "raw"
 TARGET_TABLE = "csv_source_orders"
 LOG_TABLE = "csv_ingestion_log"

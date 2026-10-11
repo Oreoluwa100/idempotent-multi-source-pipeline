@@ -1,6 +1,4 @@
 """
-ingest_api.py
-
 Pulls events from the mock order-status API (mock_api_source.py) and loads
 them into BigQuery's raw.api_source_events table.
 
@@ -35,7 +33,10 @@ from datetime import datetime, timezone
 import requests
 from google.cloud import bigquery
 
-PROJECT_ID = "credible-skill-453411-c1"
+from dotenv import load_dotenv
+load_dotenv()
+
+PROJECT_ID = os.environ["GCP_PROJECT_ID"]
 DATASET = "raw"
 TARGET_TABLE = "api_source_events"
 LOG_TABLE = "api_ingestion_log"

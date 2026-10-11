@@ -1,6 +1,4 @@
 """
-generate_csv_source.py
-
 Simulates CSV file source every 2 minutes.
 Each run produces one CSV file representing a time window of order events.
 

@@ -1,6 +1,4 @@
 """
-mock_api_source.py
-
 A local mock API simulating a live, continuously-updating order-status
 events API. New events are appended in the background for as long as
 this server runs.
