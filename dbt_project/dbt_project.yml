@@ -1,0 +1,17 @@
+name: idempotent_pipeline
+version: "1.0.0"
+profile: idempotent_pipeline
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  idempotent_pipeline:
+    staging:
+      +schema: staging
+    marts:
+      +schema: marts
+      +materialized: table

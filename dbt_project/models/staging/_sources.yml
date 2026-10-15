@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: csv_source_orders
+      - name: api_source_events
+      - name: legacy_customers
+      - name: modern_customers
