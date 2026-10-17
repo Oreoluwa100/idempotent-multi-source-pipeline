@@ -12,7 +12,7 @@ with source as (
     from {{ source('raw', 'csv_source_orders') }}
 
     {% if is_incremental() %}
-    where ingested_at > (select max(_ingested_at) from {{ this }})
+    where ingested_at > (select coalesce(max(_ingested_at), timestamp '1970-01-01') from {{ this }})
     {% endif %}
 
 ),

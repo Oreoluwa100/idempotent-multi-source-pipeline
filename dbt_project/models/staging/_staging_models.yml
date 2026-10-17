@@ -21,3 +21,10 @@ models:
         data_tests:
           - unique
           - not_null
+
+  - name: stg_api_order_status_events
+    columns:
+      - name: event_id
+        data_tests:
+          - unique
+          - not_null        

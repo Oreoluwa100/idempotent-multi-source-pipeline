@@ -12,7 +12,7 @@ with source as (
     from {{ source('raw', 'legacy_customers') }}
 
     {% if is_incremental() %}
-    where updated_at > (select max(updated_at) from {{ this }})
+    where updated_at > (select coalesce(max(updated_at), timestamp '1970-01-01') from {{ this }})
     {% endif %}
 
 ),
