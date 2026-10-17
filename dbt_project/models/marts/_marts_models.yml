@@ -29,3 +29,20 @@ models:
           - accepted_values:
               arguments:
                 values: ['system', 'agent']
+
+  - name: dim_customers
+    columns:
+      - name: email
+        data_tests:
+          - unique
+          - not_null
+      - name: account_status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['active', 'inactive', 'suspended']
+      - name: source_systems
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['legacy', 'modern', 'both']
