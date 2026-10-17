@@ -7,3 +7,10 @@ models:
         data_tests:
           - unique
           - not_null
+
+  - name: stg_modern_customers
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
