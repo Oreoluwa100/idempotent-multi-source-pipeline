@@ -2,7 +2,8 @@
     config(
         materialized='incremental',
         incremental_strategy='merge',
-        unique_key='event_id'
+        unique_key='event_id',
+        tags=['api_events']
     )
 }}
 

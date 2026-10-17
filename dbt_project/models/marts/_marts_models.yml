@@ -12,3 +12,20 @@ models:
           - accepted_values:
               arguments:
                 values: ['Sport wears', 'Gym wears', 'Lounge wears', 'Party wears']
+  
+  - name: fct_order_status_events
+    columns:
+      - name: event_id
+        data_tests:
+          - unique
+          - not_null
+      - name: status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['placed', 'shipped', 'delivered', 'cancelled']
+      - name: changed_by_type
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['system', 'agent']
