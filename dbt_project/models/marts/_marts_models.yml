@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fct_orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: product_category
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Sport wears', 'Gym wears', 'Lounge wears', 'Party wears']
