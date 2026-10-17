@@ -14,3 +14,10 @@ models:
         data_tests:
           - unique
           - not_null
+
+  - name: stg_csv_orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
