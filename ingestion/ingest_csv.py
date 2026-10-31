@@ -40,7 +40,7 @@ PROJECT_ID = os.environ["GCP_PROJECT_ID"]
 DATASET = "raw"
 TARGET_TABLE = "csv_source_orders"
 LOG_TABLE = "csv_ingestion_log"
-SCHEMA_LOG_TABLE = "cav_schema_change_log"
+SCHEMA_LOG_TABLE = "csv_schema_change_log"
 SOURCE_NAME = "csv_source"
 INPUT_DIR = "data_generation/output/csv_source"
 

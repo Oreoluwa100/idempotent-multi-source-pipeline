@@ -8,3 +8,4 @@ dbt_project/logs/
 .secrets/
 venv/
 data_generation/output/
+airflow/logs/
